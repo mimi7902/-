@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.03);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+    }
+    .brand {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-icon {
+      width: 12px;
+      height: 12px;
+      background: #10b981;
+      border-radius: 3px;
+    }
+    .title {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.3;
+      color: #0f172a;
+      margin-y: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #64748b;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-top-bar"></div>
+    <div class="brand">
+      <div class="brand-icon"></div>
+      GeekNums
+    </div>
+    <h1 class="title">{{TITLE}}</h1>
+    <div class="footer">
+      <span>Insights & Analytics</span>
+      <span>geeknums.com</span>
+    </div>
+  </div>
+</body>
+</html>
