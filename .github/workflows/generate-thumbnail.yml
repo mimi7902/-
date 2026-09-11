@@ -2,13 +2,16 @@ name: Auto Generate Thumbnail for GeekNums
 
 on:
   push:
-    branches: [ main ] # 当推送更新到 main 分支时触发
-  workflow_dispatch:  # 允许在 GitHub 界面手动点击运行，并输入文章标题
+    branches: [ main ]
+  workflow_dispatch:
     inputs:
       article_title:
         description: '请输入博客文章标题'
         required: true
         default: 'GeekNums 最新硬核技术解析'
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -27,8 +30,10 @@ jobs:
       run: npm install
 
     - name: Generate Image using Puppeteer
+      env:
+        INPUT_TITLE: ${{ inputs.article_title }}
       run: |
-        TITLE="${{ github.event.inputs.article_title || 'GeekNums 默认文章标题' }}"
+        TITLE="${INPUT_TITLE:-GeekNums 默认文章标题}"
         node generate.js "$TITLE"
 
     - name: Commit & Push generated thumbnail
